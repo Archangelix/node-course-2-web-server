@@ -22,9 +22,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -51,10 +51,16 @@ app.get('/about', (req, res) => {
   });
 });
 
-// /bad - send back json with errorMessage
+// /bad - sednd back json with errorMessage
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unable to handle request'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
   });
 });
 
